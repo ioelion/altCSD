@@ -7,6 +7,5 @@ public class Villano {
 	String sexo;
 	ArrayList<String> seniasParticulares;
 	ArrayList<String> hobbies;
-	
 }
 
