@@ -1,10 +1,25 @@
 package modelo;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
+import java.util.ArrayList;
+
+import excepciones.NoHayPistasException;
 
 public abstract class LugarDeInteres {
 	Pais pais;
-	Villano villanoQueEstuvo;
-	Bool yaFueVisitado;
-	Bool estaElVillano;
+	boolean yaFueVisitado;
+	boolean estaElVillano;
+	
+	public ArrayList<String> buscarPistas() throws NoHayPistasException{
+		ArrayList<String> pistas;
+		if (!yaFueVisitado && pais.estuvoElVillano()) {
+			pistas = obtenerPistas();
+			yaFueVisitado = true;
+		}
+		else {
+			throw new NoHayPistasException("No se encontraron pistas");
+		}
+		return pistas;
+	}
+	
+	abstract ArrayList<String> obtenerPistas() throws NoHayPistasException;
 }
