@@ -3,7 +3,7 @@ package modelo;
 import java.util.ArrayList;
 
 import calculo.Aleatorio;
-import excepciones.NoHayPistasException;
+import excepciones.PistasException;
 
 public class Banco extends LugarDeInteres{
 	

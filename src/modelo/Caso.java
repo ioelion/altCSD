@@ -5,5 +5,5 @@ public class Caso {
 	Villano villanoResponsable;
 	String objetoRobado;
 	Pais paisDondeOcurrio;
-	Villano villanoAArrestar;
+	
 }
