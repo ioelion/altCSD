@@ -2,6 +2,8 @@ package modelo;
 
 import java.util.ArrayList;
 
+import calculo.Aleatorio;
+
 public class Pais {
 	String nombre;
 	Villano villanoQuePaso;
@@ -24,5 +26,10 @@ public class Pais {
 	
 	public Villano villanoQuePaso() {
 		return villanoQuePaso;
+	}
+	
+	public String obtenerCaracteristicaAleatoria() {
+		int tamanioArrayCaracteristicas = caracteristicas.size();
+		return caracteristicas.get(Aleatorio.generarEnteroDesde0Hasta(tamanioArrayCaracteristicas));
 	}
 }

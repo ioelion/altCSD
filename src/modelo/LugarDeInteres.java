@@ -10,13 +10,13 @@ public abstract class LugarDeInteres {
 	boolean estaElVillano;
 	
 	public ArrayList<String> buscarPistas() throws NoHayPistasException{
-		ArrayList<String> pistas;
+		ArrayList<String> pistas = null;
 		if (!yaFueVisitado && pais.estuvoElVillano()) {
 			pistas = obtenerPistas();
 			yaFueVisitado = true;
-		}
+		} 
 		else {
-			throw new NoHayPistasException("No se encontraron pistas");
+			throw new NoHayPistasException("No se encontraron pistas"); 
 		}
 		return pistas;
 	}

@@ -2,6 +2,8 @@ package modelo;
 
 import java.util.ArrayList;
 
+import calculo.Aleatorio;
+
 public class Villano {
 	String nombre;
 	String sexo;
@@ -16,11 +18,17 @@ public class Villano {
 		if (indicePaisDeReferencia != indiceUltimoPais) {
 			siguientePais = planEscape.get(indicePaisDeReferencia+1);
 		}
-		//no le pongo un throw porque al hacerlo se revela informacion sobre el juego (deberia ser FinDelPlanException("Fin del Plan");
 		return siguientePais;
 	}
 
+	public String obtenerSeniaParticularAleatoria() {
+		int tamanioArraySeniasParticulares = seniasParticulares.size();
+		return seniasParticulares.get(Aleatorio.generarEnteroDesde0Hasta(tamanioArraySeniasParticulares));
+	}
 	
-	
+	public String obtenerHobbieAleatorio() {
+		int tamanioArrayHobbies = hobbies.size();
+		return hobbies.get(Aleatorio.generarEnteroDesde0Hasta(tamanioArrayHobbies));
+	}
 }
 
