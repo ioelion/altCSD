@@ -5,9 +5,25 @@ import java.util.ArrayList;
 import excepciones.PistasException;
 
 public abstract class LugarDeInteres {
-	Pais pais;
-	boolean yaFueInvestigado;
-	ArrayList<Villano> villanosDentro;
+	private Pais pais;
+	private boolean yaFueInvestigado;
+	private ArrayList<Villano> villanosDentro;
+
+	public LugarDeInteres() {
+		yaFueInvestigado = false;
+	}
+	
+	public LugarDeInteres(Villano villano) {
+		yaFueInvestigado = false;
+		villanosDentro = new ArrayList<Villano>();
+		villanosDentro.add(villano);
+	}
+	
+	public void establecerPais(Pais pais) { this.pais = pais; }
+	
+	public Pais obtenerPais() { return pais; }
+	
+	abstract ArrayList<String> obtenerPistas() throws PistasException;
 	
 	public ArrayList<String> buscarPistas() throws PistasException{
 		ArrayList<String> pistas = null;
@@ -21,9 +37,5 @@ public abstract class LugarDeInteres {
 		return pistas;
 	}
 	
-	abstract ArrayList<String> obtenerPistas() throws PistasException;
-
-	public boolean estaElVillano(Villano villano) {
-		return villanosDentro.contains(villano);
-	}
+	public boolean estaElVillano(Villano villano) { return villanosDentro.contains(villano); }
 }

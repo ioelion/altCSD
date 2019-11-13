@@ -7,18 +7,21 @@ import excepciones.OrdenDeArrestoException;
 import excepciones.PistasException;
 import excepciones.VisitarException;
 
+@SuppressWarnings("unused")
+
 public class Detective {
-	String nombre;
-	Caso casoAsignado;
-	ArrayList<String> pistasVillano;
-	Pais paisActual;
-	LugarDeInteres lugarDeInteresActual;
-	Villano villanoPorArrestar;
-	boolean ordenArrestoSolicitada;
+	private String nombre;
+	private Caso casoAsignado;
+	private Pais paisActual;
+	private LugarDeInteres lugarDeInteresActual;
+	private ArrayList<String> pistasVillano;
+	private Villano villanoPorArrestar;
+	private boolean ordenArrestoSolicitada;
 	
-	public Detective(String nombre, Pais paisInicio) {
+	public Detective(String nombre, Caso caso) {
 		this.nombre = nombre;
-		this.paisActual = paisInicio;
+		casoAsignado = caso;
+		paisActual = caso.obtenerPaisDondeOcurrio();
 		ordenArrestoSolicitada = false;
 	}
 	

@@ -2,20 +2,25 @@ package modelo;
 
 import java.util.ArrayList;
 
-import calculo.Aleatorio;
-import excepciones.PistasException;
-
 public class Banco extends LugarDeInteres{
 	
+	public Banco() {
+		super();
+	}
+	
+	public Banco(Villano villano) {
+		super(villano);
+	}
+
 	@Override
 	ArrayList<String> obtenerPistas(){
 		ArrayList<String> pistas = new ArrayList<String>();
-		Pais siguientePais = this.pais.villanoQuePaso.siguientePaisEnElPlan(this.pais);
+		Pais paisActual = this.obtenerPais();
+		Pais siguientePais = paisActual.obtenerVillanoQuePaso().siguientePaisEnElPlan(paisActual);
 		if(siguientePais != null) {
 			pistas.add(siguientePais.obtenerCaracteristicaAleatoria());
 		}
-		pistas.add(pais.villanoQuePaso.obtenerSeniaParticularAleatoria());
+		pistas.add(siguientePais.obtenerVillanoQuePaso().obtenerSeniaParticularAleatoria());
 		return pistas;
 	}
-	
 }

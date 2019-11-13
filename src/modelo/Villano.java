@@ -4,13 +4,35 @@ import java.util.ArrayList;
 
 import calculo.Aleatorio;
 
+@SuppressWarnings("unused")
+
 public class Villano {
-	String nombre;
-	String sexo;
-	boolean arrestado;
-	ArrayList<String> seniasParticulares;
-	ArrayList<String> hobbies;
-	ArrayList<Pais> planEscape;
+	
+	private String nombre;
+	private String sexo;
+	private boolean arrestado;
+	private ArrayList<String> seniasParticulares;
+	private ArrayList<String> hobbies;
+	private ArrayList<Pais> planEscape;
+	
+	public Villano(String nombreVillano, String sexoVillano) {
+		nombre = nombreVillano;
+		sexo = sexoVillano;
+		seniasParticulares = new ArrayList<String>();
+		hobbies = new ArrayList<String>();
+	}
+	
+	public void agregarSeniaParticular(String seniaParticular) {
+		seniasParticulares.add(seniaParticular);
+	}
+	
+	public void agregarHobbie(String hobbie) {
+		hobbies.add(hobbie);
+	}
+	
+	public void establecerPlanEscape(ArrayList<Pais> planEscapeVillano) {
+		planEscape = planEscapeVillano;
+	}
 	
 	public Pais siguientePaisEnElPlan(Pais paisDeReferencia) {
 		int indicePaisDeReferencia = planEscape.indexOf(paisDeReferencia);
@@ -34,6 +56,10 @@ public class Villano {
 
 	public void serArrestado() {
 		arrestado = true;
+	}
+	
+	public boolean estaArrestado() {
+		return arrestado;
 	}
 }
 
