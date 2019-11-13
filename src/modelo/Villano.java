@@ -7,6 +7,7 @@ import calculo.Aleatorio;
 public class Villano {
 	String nombre;
 	String sexo;
+	boolean arrestado;
 	ArrayList<String> seniasParticulares;
 	ArrayList<String> hobbies;
 	ArrayList<Pais> planEscape;
@@ -29,6 +30,10 @@ public class Villano {
 	public String obtenerHobbieAleatorio() {
 		int tamanioArrayHobbies = hobbies.size();
 		return hobbies.get(Aleatorio.generarEnteroDesde0Hasta(tamanioArrayHobbies));
+	}
+
+	public void serArrestado() {
+		arrestado = true;
 	}
 }
 

@@ -6,14 +6,14 @@ import excepciones.PistasException;
 
 public abstract class LugarDeInteres {
 	Pais pais;
-	boolean yaFueVisitado;
-	boolean estaElVillano;
+	boolean yaFueInvestigado;
+	ArrayList<Villano> villanosDentro;
 	
 	public ArrayList<String> buscarPistas() throws PistasException{
 		ArrayList<String> pistas = null;
-		if (!yaFueVisitado && pais.estuvoElVillano()) {
+		if (!yaFueInvestigado && pais.estuvoElVillano()) {
 			pistas = obtenerPistas();
-			yaFueVisitado = true;
+			yaFueInvestigado = true;
 		} 
 		else {
 			throw new PistasException("No se encontraron pistas"); 
@@ -22,4 +22,8 @@ public abstract class LugarDeInteres {
 	}
 	
 	abstract ArrayList<String> obtenerPistas() throws PistasException;
+
+	public boolean estaElVillano(Villano villano) {
+		return villanosDentro.contains(villano);
+	}
 }
