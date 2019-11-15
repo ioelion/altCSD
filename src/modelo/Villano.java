@@ -32,6 +32,9 @@ public class Villano {
 	
 	public void establecerPlanEscape(ArrayList<Pais> planEscapeVillano) {
 		planEscape = planEscapeVillano;
+		for(int i = 0; i < planEscape.size(); i++){
+			planEscape.get(i).establecerVillanoQuePaso(this);
+		}
 	}
 	
 	public Pais siguientePaisEnElPlan(Pais paisDeReferencia) {
